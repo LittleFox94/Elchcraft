@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <cstdlib>
 
 namespace Elchcraft {
     namespace Graphics {
