@@ -3,14 +3,14 @@ cmake_minimum_required(VERSION 3.0)
 project(Elchcraft)
 
 add_definitions(-std=c++11) 
+add_subdirectory(3rd-party/glfw)
 
 find_package(GLEW REQUIRED)
-find_package(PkgConfig REQUIRED)
-pkg_search_module(GLFW REQUIRED glfw3)
 
 include_directories(
-    ${GLFW_INCLUDE_DIRS}
     ${GLEW_INCLUDE_DIRS}
+    3rd-party/glfw/include
+	3rd-party/glm
 )
 
 add_library(ecgraphics
@@ -23,5 +23,5 @@ add_executable(elchcraft
     elchcraft/src/main.cpp
 )
 
-target_link_libraries(ecgraphics ${GLFW_LIBRARIES} ${GLEW_LIBRARIES} GL)
+target_link_libraries(ecgraphics glfw ${GLEW_LIBRARIES} opengl32)
 target_link_libraries(elchcraft ecgraphics)
