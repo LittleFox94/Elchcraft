@@ -79,7 +79,7 @@ namespace Elchcraft {
                     glGetProgramiv(program, GL_LINK_STATUS, &result);
 
                     if(result != GL_TRUE) {
-                        fprintf(stderr, "Error linking shader program\n");
+                        std::cerr << "Error linking shader program" << std::endl;
                     }
 
                     int infoLogLength = 0;
