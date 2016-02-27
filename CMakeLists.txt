@@ -30,4 +30,4 @@ else()
 endif()
 
 target_link_libraries(ecgraphics glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
-target_link_libraries(elchcraft ecgraphics)
+target_link_libraries(elchcraft ecgraphics glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
