@@ -23,5 +23,11 @@ add_executable(elchcraft
     elchcraft/src/main.cpp
 )
 
-target_link_libraries(ecgraphics glfw ${GLEW_LIBRARIES} opengl32)
+if(WIN32)
+    set(SYSTEM_SPECIFIC_LIBRARIES opengl32)
+else()
+    set(SYSTEM_SPECIFIC_LIBRARIES GL)
+endif()
+
+target_link_libraries(ecgraphics glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
 target_link_libraries(elchcraft ecgraphics)
