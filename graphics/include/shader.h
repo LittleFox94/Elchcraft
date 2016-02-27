@@ -4,6 +4,7 @@
 #include "object.h"
 
 #include <iostream>
+#include <string>
 
 namespace Elchcraft {
     namespace Graphics {
