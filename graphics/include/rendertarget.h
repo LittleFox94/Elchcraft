@@ -11,7 +11,8 @@ namespace Elchcraft {
                 RenderTarget()
                     : _viewMatrix(glm::mat4(1.0f)),
                       _projectionMatrix(glm::mat4(1.0f)),
-                      _projectionViewMatrix(glm::mat4(1.0f)) {
+                      _projectionViewMatrix(glm::mat4(1.0f)),
+                      _currentShader(nullptr) {
                 }
 
                 virtual void makeCurrent() = 0;
