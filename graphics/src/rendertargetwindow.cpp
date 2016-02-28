@@ -53,15 +53,12 @@ namespace Elchcraft {
             const std::list<Object*>* objects = scene.getObjects();
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            glEnableVertexAttribArray(0);
             _currentShader->render();
 
             for(auto object : *objects) {
                 _currentShader->setModelMatrix(object->getMatrix());
                 object->render();
             }
-
-            glDisableVertexAttribArray(0);
         }
     }
 }

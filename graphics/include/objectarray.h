@@ -25,6 +25,7 @@ namespace Elchcraft {
 
                 virtual void render() {
                     glBindVertexArray(_vertexArrayID);
+                    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
                 }
 
             protected:

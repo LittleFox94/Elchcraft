@@ -108,8 +108,10 @@ namespace Elchcraft {
 
         void ObjectWavefront::render() {
             ObjectArray::render();
+            glEnableVertexAttribArray(0);
             glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
             glDrawArrays(GL_TRIANGLES, 0, _vertexCount);
+            glDisableVertexAttribArray(0);
         }
     }
 }

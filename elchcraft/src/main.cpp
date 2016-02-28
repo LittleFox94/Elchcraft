@@ -40,12 +40,12 @@ int main(int argc, char** argv) {
     window.setShader(&shader);
 
     Elchcraft::Graphics::ObjectWavefront elk("res/3ddata/elk_f.obj");
-    elk.scale(0.6, 0.6, 0.6);
+    elk.scale(0.4, 0.4, 0.4);
     scene.addObject(&elk, 0);
 
     Elchcraft::Graphics::ObjectWavefront mini("res/3ddata/mini.obj");
-    mini.scale(0.002, 0.002, 0.002);
-    mini.translate(400, 0, 0);
+    mini.scale(0.011, 0.011, 0.011);
+    mini.translate(200, 0, 0);
     scene.addObject(&mini, 0);
 
     while(window.active()) {
