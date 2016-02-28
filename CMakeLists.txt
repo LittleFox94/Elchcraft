@@ -17,7 +17,7 @@ set(CPACK_PACKAGE_VENDOR "LittleFox")
 set(CPACK_PACKAGE_CONTACT "Moritz \\\"LittleFox\\\" Grosch <littlefox@lf-net.org>")
 set(CPACK_PACKAGE_VERSION "0.0.1-nightly")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "Elchcraft")
-set(CPACK_PACKAGE_EXECUTABLES "elchcraft" "elchcraft")
+set(CPACK_PACKAGE_EXECUTABLES "elchcraft;Elchcraft")
 include(CPack)
 
 include_directories(
