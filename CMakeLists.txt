@@ -17,7 +17,7 @@ set(CPACK_PACKAGE_VENDOR "LittleFox")
 set(CPACK_PACKAGE_CONTACT "Moritz \\\"LittleFox\\\" Grosch <littlefox@lf-net.org>")
 set(CPACK_PACKAGE_VERSION "0.0.1-nightly")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "Elchcraft")
-set(CPACK_PACKAGE_EXECUTABLES "bin/elchcraft" "bin/elchcraft")
+set(CPACK_PACKAGE_EXECUTABLES "elchcraft" "elchcraft")
 include(CPack)
 
 include_directories(
@@ -41,6 +41,10 @@ add_executable(elchcraft
 
 if(WIN32)
     set(SYSTEM_SPECIFIC_LIBRARIES opengl32)
+
+    if(GLEW_DLL)
+        install(FILES "${GLEW_DLL}" DESTINATION lib)
+    endif()
 else()
     set(SYSTEM_SPECIFIC_LIBRARIES GL)
 endif()
