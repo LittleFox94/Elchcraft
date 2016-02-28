@@ -43,7 +43,7 @@ if(WIN32)
     set(SYSTEM_SPECIFIC_LIBRARIES opengl32)
 
     if(GLEW_DLL)
-        install(FILES "${GLEW_DLL}" DESTINATION lib)
+        install(FILES "${GLEW_DLL}" DESTINATION bin)
     endif()
 else()
     set(SYSTEM_SPECIFIC_LIBRARIES GL)
