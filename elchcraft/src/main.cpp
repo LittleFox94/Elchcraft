@@ -39,11 +39,11 @@ int main(int argc, char** argv) {
                                        "}");
     window.setShader(&shader);
 
-    Elchcraft::Graphics::ObjectWavefront elk("res/3ddata/elk_f.obj");
+    Elchcraft::Graphics::ObjectWavefront elk(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/elk_f.obj");
     elk.scale(0.4, 0.4, 0.4);
     scene.addObject(&elk, 0);
 
-    Elchcraft::Graphics::ObjectWavefront mini("res/3ddata/mini.obj");
+    Elchcraft::Graphics::ObjectWavefront mini(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/mini.obj");
     mini.scale(0.011, 0.011, 0.011);
     mini.translate(200, 0, 0);
     scene.addObject(&mini, 0);
