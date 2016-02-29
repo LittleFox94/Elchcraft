@@ -18,6 +18,7 @@ namespace Elchcraft {
             private:
                 unsigned int _vertexCount;
                 std::string _file;
+                bool _loadingFinished;
         };
     }
 }

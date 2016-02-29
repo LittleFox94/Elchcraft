@@ -27,7 +27,8 @@ namespace Elchcraft {
         };
 
         ObjectWavefront::ObjectWavefront(std::string file)
-            : _file(file) {
+            : _file(file),
+              _loadingFinished(false) {
             Elchcraft::Common::LoadHandler::getInstance()->addLoadable(this);
         }
 
@@ -132,9 +133,15 @@ namespace Elchcraft {
 
             delete temp->data;
             delete temp;
+
+            _loadingFinished = true;
         }
 
         void ObjectWavefront::render() {
+            if(!_loadingFinished) {
+                return;
+            }
+
             ObjectArray::render();
             glEnableVertexAttribArray(0);
             glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
