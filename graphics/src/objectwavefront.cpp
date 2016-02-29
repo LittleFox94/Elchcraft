@@ -8,7 +8,6 @@
 #include <cstdlib>
 #include <cstring>
 #include <unordered_map>
-#include <unistd.h>
 
 namespace Elchcraft {
     namespace Graphics {
