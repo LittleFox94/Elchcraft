@@ -25,7 +25,7 @@ namespace Elchcraft {
                 }
 
                 virtual glm::mat4 getMatrix() {
-                    return _scale * _rotate * _translate;
+                    return _translate * _rotate * _scale;
                 }
 
                 virtual void translate(float x, float y, float z) {
