@@ -3,6 +3,7 @@
 
 #include "object.h"
 
+#include <fstream>
 #include <iostream>
 #include <string>
 
@@ -10,12 +11,30 @@ namespace Elchcraft {
     namespace Graphics {
         class Shader {
             public:
-                Shader(const char* vertex, const char* fragment) {
+                Shader(std::string vertexFile, std::string fragmentFile) {
+                    std::string vertexContent, fragmentContent;
+
+                    std::ifstream vertexStream(vertexFile, std::ios_base::in);
+
+                    while(!vertexStream.eof()) {
+                        std::string line;
+                        std::getline(vertexStream, line);
+                        vertexContent += line + "\n";
+                    }
+
+                    std::ifstream fragmentStream(fragmentFile, std::ios_base::in);
+
+                    while(!fragmentStream.eof()) {
+                        std::string line;
+                        std::getline(fragmentStream, line);
+                        fragmentContent += line + "\n";
+                    }
+
                     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
                     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-                    _compileAndCheckShader(vertexShader, vertex);
-                    _compileAndCheckShader(fragmentShader, fragment);
+                    _compileAndCheckShader(vertexShader, vertexContent.c_str());
+                    _compileAndCheckShader(fragmentShader, fragmentContent.c_str());
 
                     _program = _linkProgram(vertexShader, fragmentShader);
 
