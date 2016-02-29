@@ -28,6 +28,10 @@ namespace Elchcraft {
             }
 
             glfwSetInputMode(_window, GLFW_STICKY_KEYS, GL_TRUE);
+
+            glEnable(GL_DEPTH_TEST);
+            glDepthFunc(GL_LESS);
+            glClearColor(0.5f, 0.5f, 0.5f, 0.0f);
         }
 
         RenderTargetWindow::~RenderTargetWindow() {
