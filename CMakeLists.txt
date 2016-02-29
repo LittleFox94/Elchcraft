@@ -56,8 +56,7 @@ endif()
 target_link_libraries(ecgraphics eccommon glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
 target_link_libraries(elchcraft ecgraphics eccommon glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
 
-install(TARGETS elchcraft ecgraphics eccommon
+install(TARGETS elchcraft
     RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
 )
 install(DIRECTORY elchcraft/res DESTINATION share/Elchcraft)
