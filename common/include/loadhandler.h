@@ -34,12 +34,12 @@ namespace Elchcraft {
                     thread.detach();
                 }
 
-                unsigned int getNumJobs() {
+                size_t getNumJobs() {
                     return _loadables.size();
                 }
 
-                unsigned int getNumFinishedJobs() {
-                    unsigned int ret = 0;
+                size_t getNumFinishedJobs() {
+                    size_t ret = 0;
                     for(auto l : _loadables) {
                         if(l->finished()) {
                             ret++;
