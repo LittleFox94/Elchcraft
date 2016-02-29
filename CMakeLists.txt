@@ -29,11 +29,11 @@ include_directories(
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 add_definitions(-DINSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}")
 
-add_library(eccommon SHARED
+add_library(eccommon STATIC
     common/src/loadhandler.cpp
 )
 
-add_library(ecgraphics SHARED
+add_library(ecgraphics STATIC
     graphics/src/rendertargetwindow.cpp
     graphics/src/scene.cpp
     graphics/src/objectwavefront.cpp
