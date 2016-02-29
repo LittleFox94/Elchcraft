@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <cstdlib>
+#include <cstring>
 
 namespace Elchcraft {
     namespace Graphics {
@@ -113,7 +114,8 @@ namespace Elchcraft {
             }
 
             DataTemp* temp = new DataTemp();
-            temp->data = readyToStoreInVRAM.data();
+            temp->data = new GLfloat[readyToStoreInVRAM.size()];
+            std::memcpy(temp->data, readyToStoreInVRAM.data(), readyToStoreInVRAM.size() * sizeof(GLfloat));
             temp->size = readyToStoreInVRAM.size() * sizeof(GLfloat);
             _datatemp = (void*)temp;
         }
