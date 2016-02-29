@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     Elchcraft::Graphics::Shader shader(INSTALL_PREFIX"/share/Elchcraft/res/shader/main.vert", INSTALL_PREFIX"/share/Elchcraft/res/shader/main.frag");
     window.setShader(&shader);
 
-    Elchcraft::Graphics::ObjectWavefront elk(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/elk_f.obj");
+    Elchcraft::Graphics::ObjectWavefront elk(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/cube.obj");
     elk.scale(0.4, 0.4, 0.4);
     elk.translate(-2, 0, 0);
     scene.addObject(&elk, 0);
