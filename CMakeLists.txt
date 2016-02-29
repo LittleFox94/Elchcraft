@@ -35,6 +35,10 @@ add_library(ecgraphics SHARED
     graphics/src/objectwavefront.cpp
 )
 
+add_library(eccommon SHARED
+    common/src/loadhandler.cpp
+)
+
 add_executable(elchcraft
     elchcraft/src/main.cpp
 )
@@ -50,9 +54,9 @@ else()
 endif()
 
 target_link_libraries(ecgraphics glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
-target_link_libraries(elchcraft ecgraphics glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
+target_link_libraries(elchcraft ecgraphics eccommon glfw ${GLEW_LIBRARIES} ${SYSTEM_SPECIFIC_LIBRARIES})
 
-install(TARGETS elchcraft ecgraphics
+install(TARGETS elchcraft ecgraphics eccommon
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
 )
