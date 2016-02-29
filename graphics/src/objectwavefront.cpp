@@ -121,6 +121,9 @@ namespace Elchcraft {
         }
 
         void ObjectWavefront::glFinish() {
+            glBindVertexArray(_vertexArrayID);
+            glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
+
             DataTemp* temp = (DataTemp*)_datatemp;
 
             glBufferData(GL_ARRAY_BUFFER, temp->size, temp->data, GL_STATIC_DRAW);
