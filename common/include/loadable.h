@@ -5,7 +5,7 @@ namespace Elchcraft {
     namespace Common {
         class Loadable {
             public:
-                Loadable() : _finished(false) {
+                Loadable() : _finished(false), _datatemp(nullptr) {
                 }
 
                 bool finished() {
