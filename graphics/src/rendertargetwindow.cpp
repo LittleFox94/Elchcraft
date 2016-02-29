@@ -1,4 +1,5 @@
 #include "../include/rendertargetwindow.h"
+#include "../../common/include/loadhandler.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -42,6 +43,8 @@ namespace Elchcraft {
         }
 
         void RenderTargetWindow::eventProcessor() {
+            while(Elchcraft::Common::LoadHandler::getInstance()->glFinishLoading());
+
             glfwSwapBuffers(_window);
             glfwPollEvents();
 

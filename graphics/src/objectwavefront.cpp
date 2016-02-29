@@ -1,4 +1,5 @@
 #include "../include/objectwavefront.h"
+#include "../../common/include/loadhandler.h"
 
 #include <iostream>
 #include <fstream>
@@ -19,8 +20,18 @@ namespace Elchcraft {
             float z;
         };
 
-        ObjectWavefront::ObjectWavefront(std::string file) {
-            std::ifstream filestream(file, std::ios_base::in);
+        struct DataTemp {
+            float* data;
+            size_t size;
+        };
+
+        ObjectWavefront::ObjectWavefront(std::string file)
+            : _file(file) {
+            Elchcraft::Common::LoadHandler::getInstance()->addLoadable(this);
+        }
+
+        void ObjectWavefront::onLoad() {
+            std::ifstream filestream(_file, std::ios_base::in);
 
             std::string name, mtllib;
 
@@ -101,9 +112,21 @@ namespace Elchcraft {
                 }
             }
 
-            glBufferData(GL_ARRAY_BUFFER, readyToStoreInVRAM.size() * sizeof(GL_FLOAT), readyToStoreInVRAM.data(), GL_STATIC_DRAW);
-            _vertexCount = readyToStoreInVRAM.size();
+            DataTemp* temp = new DataTemp();
+            temp->data = readyToStoreInVRAM.data();
+            temp->size = readyToStoreInVRAM.size() * sizeof(GLfloat);
+            _datatemp = (void*)temp;
+        }
+
+        void ObjectWavefront::glFinish() {
+            DataTemp* temp = (DataTemp*)_datatemp;
+
+            glBufferData(GL_ARRAY_BUFFER, temp->size, temp->data, GL_STATIC_DRAW);
+            _vertexCount = temp->size / sizeof(GLfloat);
             std::cerr << "Stored " << _vertexCount << " vertices in VRAM" << std::endl;
+
+            delete temp->data;
+            delete temp;
         }
 
         void ObjectWavefront::render() {

@@ -25,27 +25,17 @@ int main(int argc, char** argv) {
 
     Elchcraft::Graphics::Scene scene;
 
-    Elchcraft::Graphics::Shader shader("#version 330 core\n"
-                                       "layout(location = 0) in vec3 vertexPosition_modelspace;\n"
-                                       "uniform mat4 modelMatrix;\n"
-                                       "uniform mat4 projectionViewMatrix;\n"
-                                       "void main() {\n"
-                                       "    gl_Position = projectionViewMatrix * modelMatrix * vec4(vertexPosition_modelspace, 1);\n"
-                                       "}", 
-                                       "#version 330 core\n"
-                                       "out vec3 color;\n"
-                                       "void main() {\n"
-                                       "    color = vec3(1, gl_FragCoord.x / 1280, 0);\n"
-                                       "}");
+    Elchcraft::Graphics::Shader shader(INSTALL_PREFIX"/share/Elchcraft/res/shader/main.vert", INSTALL_PREFIX"/share/Elchcraft/res/shader/main.frag");
     window.setShader(&shader);
 
     Elchcraft::Graphics::ObjectWavefront elk(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/elk_f.obj");
     elk.scale(0.4, 0.4, 0.4);
+    elk.translate(-2, 0, 0);
     scene.addObject(&elk, 0);
 
     Elchcraft::Graphics::ObjectWavefront mini(INSTALL_PREFIX"/share/Elchcraft/res/3ddata/mini.obj");
-    mini.scale(0.011, 0.011, 0.011);
-    mini.translate(200, 0, 0);
+    mini.scale(0.009, 0.009, 0.009);
+    mini.translate(3, 0, 0);
     scene.addObject(&mini, 0);
 
     while(window.active()) {
