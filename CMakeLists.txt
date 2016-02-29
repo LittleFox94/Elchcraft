@@ -4,10 +4,10 @@ project(Elchcraft)
 
 add_definitions(-std=c++11)
 
-set(GLFW_BUILD_EXAMPLES off)
-set(GLFW_BUILD_TESTS off)
-set(GLFW_BUILD_DOCS off)
-set(GLFW_INSTALL off)
+option(GLFW_BUILD_EXAMPLES off)
+option(GLFW_BUILD_TESTS off)
+option(GLFW_BUILD_DOCS off)
+option(GLFW_INSTALL off)
 add_subdirectory(3rd-party/glfw)
 
 find_package(GLEW REQUIRED)
