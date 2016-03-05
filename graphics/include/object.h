@@ -2,7 +2,13 @@
 #define _GRAPHICS_OBJECT_H_INCLUDED
 
 #include <GL/glew.h>
+
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
+#endif
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
